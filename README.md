@@ -15,9 +15,9 @@ No network, no API key, no dependencies. One 87 KB C program.
 
 <br><br>
 
-<a href="https://github.com/0xwilliamortiz/humanizer-cli/releases/tag/2.9.2"><img src="docs/download.svg" alt="Download the latest release" width="240"></a>
+<a href="https://github.com/0xwilliamortiz/humanizer-cli/releases/download/2.9.2/humanizer-v2.9.2.zip"><img src="docs/download.svg" alt="Download humanizer 2.9.2 for Windows" width="300" height="48"></a>
 
-<sub>windows x64 &middot; 87 KB binary &middot; no installer</sub>
+<sub>windows x64 &middot; unpack and run &middot; <a href="https://github.com/0xwilliamortiz/humanizer-cli/releases">all releases</a></sub>
 
 </div>
 
