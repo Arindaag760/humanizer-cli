@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="52" viewBox="0 0 260 52" role="img" aria-label="Download">
+  <rect x="1" y="1" width="258" height="50" rx="8" fill="#d787af"/>
+  <g stroke="#16161a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M46 18 v13"/>
+    <path d="M40.5 25.5 L46 31 L51.5 25.5"/>
+    <path d="M39 35.5 h14"/>
+  </g>
+  <text x="76" y="32.5" fill="#16161a" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="15" font-weight="700" letter-spacing="2.4">DOWNLOAD</text>
+</svg>
